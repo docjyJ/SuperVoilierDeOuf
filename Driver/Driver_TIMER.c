@@ -94,7 +94,7 @@ void MyTimer_PWM_Cycle(TIM_TypeDef * TIM , uint32_t TIM_Channel, uint16_t CCR){
 }
 
 void MyTimer_Incremental(TIM_TypeDef * TIM){
-	TIM->ARR = 359;
+	TIM->ARR = 1439;
 	TIM->CCMR1 &= ~(TIM_CCMR1_CC1S) & ~(TIM_CCMR1_CC2S);
 	TIM->CCMR1 |= TIM_CCMR1_CC1S | TIM_CCMR1_CC2S;
 	TIM->CCMR1 |= TIM_CCMR1_OC1M_0 | TIM_CCMR1_OC2M_0;

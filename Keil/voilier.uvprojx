@@ -186,6 +186,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -408,6 +409,31 @@
               <FileType>1</FileType>
               <FilePath>..\Driver\Driver_TIMER.c</FilePath>
             </File>
+            <File>
+              <FileName>Driver_ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_GPIO.h</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_TIMER.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_TIMER.h</FilePath>
+            </File>
+            <File>
+              <FileName>girouette.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\girouette.h</FilePath>
+            </File>
+            <File>
+              <FileName>Girouette.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Girouette.C</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -598,6 +624,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -751,7 +778,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDriver</IncludePath>
+              <IncludePath>.\Include;..\MesDriver;..\Driver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -819,6 +846,31 @@
               <FileName>Driver_TIMER.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\Driver_TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_GPIO.h</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_TIMER.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\Driver_TIMER.h</FilePath>
+            </File>
+            <File>
+              <FileName>girouette.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\girouette.h</FilePath>
+            </File>
+            <File>
+              <FileName>Girouette.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Girouette.C</FilePath>
             </File>
           </Files>
         </Group>

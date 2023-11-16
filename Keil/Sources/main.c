@@ -3,7 +3,7 @@
 #include "Driver_GPIO.h"
 #include "Driver_ADC.h"
 #include "girouette.h"
-
+int angle;
 
 int main() {
 	
@@ -11,11 +11,9 @@ int main() {
 	MyGPIO_Init ( GPIOA,  9, In_PullDown);
 	MyGPIO_Init ( GPIOA,  12, In_Floating);
 	
-	MyTimer_Base_Init(TIM2, 359, 0);
-	
-	
+	Config_Girouette(TIM1);
 
 	while(1){
-		int angle = getAngle(TIM2);
+		angle = getAngle(TIM1);
 	}
 }
