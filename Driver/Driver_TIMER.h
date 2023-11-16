@@ -10,5 +10,5 @@ void MyTimer_ActiveIT(TIM_TypeDef * TIM , uint32_t priority, void (*IT_fun) (voi
 
 void MyTimer_PWM(TIM_TypeDef * TIM , uint32_t TIM_Channel);
 void MyTimer_PWM_Cycle(TIM_TypeDef * TIM , uint32_t TIM_Channel, uint16_t CCR);
-
+void MyTimer_Incremental(TIM_TypeDef * TIM);
 #endif
