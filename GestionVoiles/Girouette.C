@@ -1,4 +1,4 @@
-#include "girouette.h"
+#include "Girouette.h"
 #include "Driver_TIMER.h"
 #include "stm32f10x.h"
 

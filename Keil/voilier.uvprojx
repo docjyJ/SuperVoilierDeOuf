@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDriver;..\Driver</IncludePath>
+              <IncludePath>.\Include;..\MesDriver;..\Driver;..\GestionVoiles</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -424,15 +424,30 @@
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_TIMER.h</FilePath>
             </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Driver\girouette.h</FilePath>
-            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Voiles</GroupName>
+          <Files>
             <File>
               <FileName>Girouette.C</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Girouette.C</FilePath>
+              <FilePath>..\GestionVoiles\Girouette.C</FilePath>
+            </File>
+            <File>
+              <FileName>Girouette.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\GestionVoiles\Girouette.h</FilePath>
+            </File>
+            <File>
+              <FileName>voiles.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GestionVoiles\voiles.c</FilePath>
+            </File>
+            <File>
+              <FileName>Voiles.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\GestionVoiles\Voiles.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -778,7 +793,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDriver;..\Driver</IncludePath>
+              <IncludePath>.\Include;..\MesDriver;..\Driver;..\GestionVoiles</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -862,15 +877,30 @@
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_TIMER.h</FilePath>
             </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Driver\girouette.h</FilePath>
-            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Voiles</GroupName>
+          <Files>
             <File>
               <FileName>Girouette.C</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Girouette.C</FilePath>
+              <FilePath>..\GestionVoiles\Girouette.C</FilePath>
+            </File>
+            <File>
+              <FileName>Girouette.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\GestionVoiles\Girouette.h</FilePath>
+            </File>
+            <File>
+              <FileName>voiles.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GestionVoiles\voiles.c</FilePath>
+            </File>
+            <File>
+              <FileName>Voiles.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\GestionVoiles\Voiles.h</FilePath>
             </File>
           </Files>
         </Group>
