@@ -5,13 +5,19 @@
 #include "Driver_USART.h"
 #include "Gouvernail.h"
 
+void Blop1(){
+	int test = MyUsart_Receive(USART1);
+	test++;
+	MyUsart_Send(USART1, 'O');
+}
+
 
 int main() {
 	
-	MyUsart_Base_Init (USART1, 9600);
-	MyUsart_Base_Init (USART2, 19200);
-	MyUsart_Base_Init (USART3, 38400);
-	
+	MyUsart_Base_Init (USART1, 9600, Blop1);
+	MyUsart_Base_Init (USART2, 19200, 0);
+	MyUsart_Base_Init (USART3, 38400, 0);
+	MyUsart_Send(USART1, 'i');
 	
 	while(1){
 		__asm__ ("nop");

@@ -409,6 +409,11 @@
               <FilePath>..\Driver\Driver_TIMER.c</FilePath>
             </File>
             <File>
+              <FileName>Driver_USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Driver_USART.c</FilePath>
+            </File>
+            <File>
               <FileName>Driver_ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_ADC.h</FilePath>
@@ -422,11 +427,6 @@
               <FileName>Driver_TIMER.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_TIMER.h</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_USART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_USART.c</FilePath>
             </File>
             <File>
               <FileName>Driver_USART.h</FileName>
@@ -861,6 +861,11 @@
               <FilePath>..\Driver\Driver_TIMER.c</FilePath>
             </File>
             <File>
+              <FileName>Driver_USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Driver_USART.c</FilePath>
+            </File>
+            <File>
               <FileName>Driver_ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_ADC.h</FilePath>
@@ -874,11 +879,6 @@
               <FileName>Driver_TIMER.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Driver\Driver_TIMER.h</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_USART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_USART.c</FilePath>
             </File>
             <File>
               <FileName>Driver_USART.h</FileName>
