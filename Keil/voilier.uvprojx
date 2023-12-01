@@ -448,6 +448,16 @@
               <FileType>5</FileType>
               <FilePath>..\Services\Gouvernail.h</FilePath>
             </File>
+            <File>
+              <FileName>GestionBat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\GestionBat.c</FilePath>
+            </File>
+            <File>
+              <FileName>GestionBat.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Services\GestionBat.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -899,6 +909,16 @@
               <FileName>Gouvernail.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Services\Gouvernail.h</FilePath>
+            </File>
+            <File>
+              <FileName>GestionBat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\GestionBat.c</FilePath>
+            </File>
+            <File>
+              <FileName>GestionBat.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Services\GestionBat.h</FilePath>
             </File>
           </Files>
         </Group>

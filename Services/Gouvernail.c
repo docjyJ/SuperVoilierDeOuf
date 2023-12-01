@@ -2,32 +2,48 @@
 #include "stm32f10x.h"
 #include "Driver_GPIO.h"
 #include "Driver_TIMER.h"
-
 #include "Driver_USART.h"
 
+
+#define USED_TIM TIM2
+#define TIM_FREQ 72
+#define REZ_PWM 110
+#define USED_USART USART3
+#define GPIO_RX GPIOB, 11
+#define GPIO_TX GPIOB, 10
+#define BAUDRATE 9600
+#define GPIO_PWM
+#define GPIO_SENS_PORT GPIOA
+#define GPIO_SENS_PIN 10
+#define GPIO_PWM_PORT GPIOA
+#define GPIO_PWM_PIN 1
+
+
+
 void MyGouv_Init() {
-	MyGPIO_Init(GPIOA, 1, AltOut_Ppull); // TODO: LA PIN ?
-	MyGPIO_Init(GPIOA, 2, Out_Ppull);
+	MyGPIO_Init(GPIO_PWM_PORT, GPIO_PWM_PIN, AltOut_Ppull);
+	MyGPIO_Init(GPIO_SENS_PORT, GPIO_SENS_PIN, Out_Ppull);
 	
-	MyTimer_Base_Init(TIM2, 50, 71); // TODO: FRECANCE ?
-	MyTimer_PWM(TIM2, 2);
-	MyTimer_PWM_Cycle(TIM2, 2, 0);
-	MyTimer_Base_Start(TIM2);
+	MyTimer_Base_Init(USED_TIM, REZ_PWM-1, TIM_FREQ/2-1);
+	MyTimer_PWM(USED_TIM, 2);
+	MyTimer_PWM_Cycle(USED_TIM, 2, 0);
+	MyTimer_Base_Start(USED_TIM);
 	
-	MyGPIO_Init ( GPIOB,  10, AltOut_Ppull_10);
-	MyGPIO_Init ( GPIOB,  11, In_PullUp);
+	MyGPIO_Init (GPIO_TX, AltOut_Ppull_10);
+	MyGPIO_Init (GPIO_RX, In_PullUp);
 	
-	MyUsart_Base_Init (USART3, 9600);
-	MyUsart_ActiveIT (USART3, 2, MyGouv_Command);
+	MyUsart_Base_Init (USED_USART, BAUDRATE);
+	MyUsart_ActiveIT (USED_USART, 2, MyGouv_Command);
 }
 
-void MyGouv_Command(int8_t cmd) {
-	if (cmd < 0) {
-		MyGPIO_Set(GPIOA, 2);
-		MyTimer_PWM_Cycle(TIM2, 2, cmd * 250);
+void MyGouv_Command(char cmd) {
+	int8_t leNew = (int8_t) cmd;
+	if (leNew < 0) {		
+		MyGPIO_Set(GPIO_SENS_PORT, GPIO_SENS_PIN);
+		leNew = -leNew;
 	}
 	else {
-		MyGPIO_Reset(GPIOA, 2);
-		MyTimer_PWM_Cycle(TIM2, 2, - cmd * 250);
+		MyGPIO_Reset(GPIO_SENS_PORT, GPIO_SENS_PIN);
 	}
+	MyTimer_PWM_Cycle(USED_TIM, 2, leNew);
 }
