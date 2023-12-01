@@ -2,10 +2,12 @@
 #define GIROUETTE_H
 #include "stm32f10x.h"
 
-void Config_Girouette(TIM_TypeDef * TIM);
+void Config_Girouette(void);
 	
-int getAngle(TIM_TypeDef * TIM);
+int getAngle(void);
 
-void resetAngle(TIM_TypeDef * TIM);
+void resetAngle(void);
+
+
 
 #endif

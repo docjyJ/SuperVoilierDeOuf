@@ -27,3 +27,4 @@ void MyGPIO_Init ( GPIO_TypeDef * GPIO,  uint32_t GPIO_Pin, uint32_t GPIO_Conf) 
 	else
 		MyGPIO_Reset(GPIO, GPIO_Pin);
 }
+

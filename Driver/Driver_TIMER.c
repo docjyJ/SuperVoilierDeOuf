@@ -105,7 +105,27 @@ void MyTimer_Incremental(TIM_TypeDef * TIM){
 		
 	TIM->SMCR &= ~(TIM_SMCR_SMS);
 	TIM->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1;
-		
 	TIM->CR1 |= TIM_CR1_CEN;
 }
 
+// Configuration TIMER Codeur
+void MyTimer_Incremental_Config(TIM_TypeDef * TIM){
+
+	MyTimer_Incremental(TIM);
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI1_PB;
+	//Configuration Interruption EXTI PB1
+	(EXTI->IMR) = 0x01<<1 ;
+	// Activation Interruption EXTI sur front montant PB1
+	(EXTI->RTSR)|=(0x01<<1); 
+	// Désactivation Interruption EXTI sur front descendant PB1
+	(EXTI->FTSR) &= ~(0x01 <<1);
+
+	// Activation Interruption EXTI au niveau du coeur
+	// L’interruption EXTI au niveau du coeur est identifiée par le numéro 23
+	NVIC->ISER[0] = NVIC->ISER[0] | (1 << 7);
+	
+	// Priorité Interruption EXTI
+	NVIC->IP[7]=4;
+
+}

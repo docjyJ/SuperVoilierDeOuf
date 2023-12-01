@@ -10,15 +10,16 @@ int main() {
 	
 	MyGPIO_Init ( GPIOA,  8, In_Floating);
 	MyGPIO_Init ( GPIOA,  9, In_Floating);
+	MyGPIO_Init ( GPIOB,  1, In_Floating);
 	MyGPIO_Init ( GPIOA,  12, In_Floating);
-	
-	Config_Girouette(TIM1);
+
+	Config_Girouette();
 
 	
 	Init_PWM_Voilier(TIM3);
 	
 	while(1){
-		angle = getAngle(TIM1);
+		angle = getAngle();
 		Change_PWM_Cycle(TIM3,angle_PWM(angle));
 		
 	}
