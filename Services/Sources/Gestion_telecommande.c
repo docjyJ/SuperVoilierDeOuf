@@ -4,6 +4,7 @@
 #include "Driver_TIMER.h"
 #include "Driver_USART.h"
 #include "Gestion_ds1307_RTC.h"
+
 #include <stdio.h>
 
 
@@ -39,6 +40,7 @@ void MyGestion_Tel_Init() {
 	MyUsart_ActiveIT (USED_USART, 2, MyGestion_Tel_Command);
 	
 	MyDs1307_Init(USED_I2C);
+
 }
 
 void MyGestion_Tel_Command(char cmd) {
@@ -58,6 +60,7 @@ void MyGestion_Tel_Send(char* sms) {
 	int i;
 	
 	MyDs1307_time time = MyDs1307_GetTime(USED_I2C);
+
 	sprintf(head, "[%02d:%02d:%02d] ", time.heures, time.minutes, time.secondes);
 	
 	
