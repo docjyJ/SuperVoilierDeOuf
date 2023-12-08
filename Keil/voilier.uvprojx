@@ -413,22 +413,20 @@
               <FileType>4</FileType>
               <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
             </File>
+            <File>
+              <FileName>Driver_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>adxl345.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Service\adxl345.c</FilePath>
-            </File>
-            <File>
-              <FileName>ds1307_RTC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Service\ds1307_RTC.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
@@ -771,7 +769,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Driver\Include;.\Service</IncludePath>
+              <IncludePath>..\Driver\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -845,22 +843,20 @@
               <FileType>4</FileType>
               <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
             </File>
+            <File>
+              <FileName>Driver_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>adxl345.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Service\adxl345.c</FilePath>
-            </File>
-            <File>
-              <FileName>ds1307_RTC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Service\ds1307_RTC.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

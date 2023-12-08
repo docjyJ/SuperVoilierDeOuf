@@ -1,5 +1,5 @@
-#ifndef ADXL345_H_
-#define ADXL345_H_
+#ifndef DRIVER_ADXL345_H_
+#define DRIVER_ADXL345_H_
 
 #include "stm32f10x.h"
 

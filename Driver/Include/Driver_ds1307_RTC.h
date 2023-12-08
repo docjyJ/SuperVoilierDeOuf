@@ -1,5 +1,5 @@
-#ifndef DS1307_RTC_H_
-#define DS1307_RTC_H_
+#ifndef DRIVER_DS1307_RTC_H_
+#define DRIVER_DS1307_RTC_H_
 
 #include "stm32f10x.h"
 

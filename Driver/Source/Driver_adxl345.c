@@ -1,5 +1,5 @@
 #include "stm32f10x.h"
-#include "adxl345.h"
+#include "Driver_adxl345.h"
 #include "MySPI.h"
 #include "stdlib.h"
 
