@@ -1,6 +1,6 @@
 #include "stm32f10x.h"
 #include "Driver_TIMER.h"
-
+#include "Driver_GPIO.h"
 
 
 
@@ -10,7 +10,7 @@ void MyTimer_Base_Init (TIM_TypeDef * TIM, uint16_t ARR, uint16_t PSC){
 	else if (TIM == TIM3) RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
 	else if (TIM == TIM4) RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
 	else return;
-	
+
 	TIM->ARR = ARR;
 	TIM->PSC = PSC;
 }
@@ -41,6 +41,14 @@ void TIM4_IRQHandler(){
 	(*TIM4_IT_fun)();
 }
 
+void (*Girouette_Ptr) (void);
+void EXTI1_IRQHandler(void) {
+
+	// Remise à zéro du flag 
+	EXTI->PR |= 0x1 <<1;
+	(*Girouette_Ptr)();
+
+}
 
 
 void MyTimer_ActiveIT(TIM_TypeDef * TIM , uint32_t  priority, void (*IT_fun) (void)){
@@ -50,7 +58,7 @@ void MyTimer_ActiveIT(TIM_TypeDef * TIM , uint32_t  priority, void (*IT_fun) (vo
 	else if (TIM == TIM3) { TIM_IRQn = TIM3_IRQn; TIM3_IT_fun = IT_fun; }
 	else if (TIM == TIM4) { TIM_IRQn = TIM4_IRQn; TIM4_IT_fun = IT_fun; }
 	else return;
-	
+
 	TIM->DIER |= TIM_DIER_UIE;
 	NVIC_EnableIRQ(TIM_IRQn);
 	NVIC_SetPriority(TIM_IRQn, priority);
@@ -93,3 +101,40 @@ void MyTimer_PWM_Cycle(TIM_TypeDef * TIM , uint32_t TIM_Channel, uint16_t CCR){
 	else if (TIM_Channel == 4) TIM->CCR4 = CCR;
 }
 
+void MyTimer_Incremental(TIM_TypeDef * TIM){
+	TIM->ARR = 1439;
+	TIM->CCMR1 &= ~(TIM_CCMR1_CC1S) & ~(TIM_CCMR1_CC2S);
+	TIM->CCMR1 |= TIM_CCMR1_CC1S | TIM_CCMR1_CC2S;
+	TIM->CCMR1 |= TIM_CCMR1_OC1M_0 | TIM_CCMR1_OC2M_0;
+
+
+	TIM->CCER &= ~(TIM_CCER_CC1E) & ~(TIM_CCER_CC2E);
+	TIM->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E;
+
+	TIM->SMCR &= ~(TIM_SMCR_SMS);
+	TIM->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1;
+	TIM->CR1 |= TIM_CR1_CEN;
+}
+
+// Configuration TIMER Codeur
+void MyTimer_Incremental_Config(TIM_TypeDef * TIM,void (*IT_function) (void)){
+
+	MyTimer_Incremental(TIM3);
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI1_PB;
+	//Configuration Interruption EXTI PB1
+	(EXTI->IMR) = 0x01<<1 ;
+	// Activation Interruption EXTI sur front montant PB1
+	(EXTI->RTSR)|=(0x01<<1); 
+	// Désactivation Interruption EXTI sur front descendant PB1
+	(EXTI->FTSR) &= ~(0x01 <<1);
+
+	// Activation Interruption EXTI au niveau du coeur
+	// L’interruption EXTI au niveau du coeur est identifiée par le numéro 23
+	NVIC->ISER[0] = NVIC->ISER[0] | (1 << 7);
+
+	// Priorité Interruption EXTI
+	NVIC->IP[7]=4;
+	Girouette_Ptr = IT_function;
+
+}
