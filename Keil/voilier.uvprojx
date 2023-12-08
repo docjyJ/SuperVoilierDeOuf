@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDriver</IncludePath>
+              <IncludePath>..\Driver\Include;.\Service</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -396,19 +396,37 @@
             <File>
               <FileName>Driver_ADC.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_ADC.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_ADC.c</FilePath>
             </File>
             <File>
               <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_GPIO.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_GPIO.c</FilePath>
             </File>
             <File>
               <FileName>Driver_TIMER.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_TIMER.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lib_Com_Periph_2022.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>Service</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
@@ -751,7 +769,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDriver</IncludePath>
+              <IncludePath>..\Driver\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -808,19 +826,37 @@
             <File>
               <FileName>Driver_ADC.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_ADC.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_ADC.c</FilePath>
             </File>
             <File>
               <FileName>Driver_GPIO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_GPIO.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_GPIO.c</FilePath>
             </File>
             <File>
               <FileName>Driver_TIMER.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Driver_TIMER.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lib_Com_Periph_2022.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Driver_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>Service</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
