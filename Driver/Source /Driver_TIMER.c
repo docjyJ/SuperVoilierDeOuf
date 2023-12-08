@@ -44,7 +44,7 @@ void TIM4_IRQHandler(){
 void (*Girouette_Ptr) (void);
 void EXTI1_IRQHandler(void) {
 	
-	// Remise à zéro du flag 
+	// Remise Ã  zÃ©ro du flag 
 	EXTI->PR |= 0x1 <<1;
 	(*Girouette_Ptr)();
 
@@ -126,14 +126,14 @@ void MyTimer_Incremental_Config(TIM_TypeDef * TIM,void (*IT_function) (void)){
 	(EXTI->IMR) = 0x01<<1 ;
 	// Activation Interruption EXTI sur front montant PB1
 	(EXTI->RTSR)|=(0x01<<1); 
-	// Désactivation Interruption EXTI sur front descendant PB1
+	// DÃ©sactivation Interruption EXTI sur front descendant PB1
 	(EXTI->FTSR) &= ~(0x01 <<1);
 
 	// Activation Interruption EXTI au niveau du coeur
-	// L’interruption EXTI au niveau du coeur est identifiée par le numéro 23
+	// Lâ€™interruption EXTI au niveau du coeur est identifiÃ©e par le numÃ©ro 23
 	NVIC->ISER[0] = NVIC->ISER[0] | (1 << 7);
 	
-	// Priorité Interruption EXTI
+	// PrioritÃ© Interruption EXTI
 	NVIC->IP[7]=4;
 	Girouette_Ptr = IT_function;
 
