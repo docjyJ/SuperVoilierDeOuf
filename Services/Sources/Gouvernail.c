@@ -3,6 +3,8 @@
 #include "Driver_GPIO.h"
 #include "Driver_TIMER.h"
 #include "Driver_USART.h"
+#include "Driver_ds1307_RTC.h"
+#include <stdio.h>
 
 
 #define USED_TIM TIM2
@@ -17,6 +19,7 @@
 #define GPIO_SENS_PIN 10
 #define GPIO_PWM_PORT GPIOA
 #define GPIO_PWM_PIN 1
+#define USED_I2C I2C1
 
 
 
@@ -34,6 +37,8 @@ void MyGouv_Init() {
 	
 	MyUsart_Base_Init (USED_USART, BAUDRATE);
 	MyUsart_ActiveIT (USED_USART, 2, MyGouv_Command);
+	
+	ds1307_init(USED_I2C);
 }
 
 void MyGouv_Command(char cmd) {
@@ -46,4 +51,20 @@ void MyGouv_Command(char cmd) {
 		MyGPIO_Reset(GPIO_SENS_PORT, GPIO_SENS_PIN);
 	}
 	MyTimer_PWM_Cycle(USED_TIM, 2, leNew);
+}
+
+void MyGouv_Send(char* sms) {
+	char head[12];
+	int i;
+	
+	ds1307_time time = ds1307_get_time(USED_I2C);
+	sprintf(head, "[%02d:%02d:%02d] ", time.heures, time.minutes, time.secondes);
+	
+	
+	for (i = 0; i < 11; i++) MyUsart_Send(USED_USART, head[i]);
+	
+  for (i = 0; sms[i]; i++) MyUsart_Send(USED_USART, sms[i]);
+
+	
+	MyUsart_Send(USED_USART, '\n');
 }
