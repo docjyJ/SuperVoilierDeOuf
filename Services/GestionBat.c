@@ -1,10 +1,11 @@
 #include "stm32f10x.h"
 #include "Driver_GPIO.h"
+#include "Driver_ADC.h"
 
-#define TensionBatPort //
-#define TensionBatPin //
-#define USED_ADC //
-#define ADC_CHANNEL //
+#define TensionBatPort GPIOA
+#define TensionBatPin 4
+#define USED_ADC ADC1
+#define ADC_CHANNEL 0
 
 void MyBatConfigPin (){
 	MyGPIO_Init(TensionBatPort, TensionBatPin, In_Analog);
