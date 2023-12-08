@@ -10,3 +10,4 @@ int main() {
 		__asm__ ("nop");
 	}
 }
+
