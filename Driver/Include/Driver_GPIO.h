@@ -17,6 +17,7 @@
 #define AltOut_Ppull_10	 0x09
 
 
+
 void MyGPIO_Init ( GPIO_TypeDef * GPIO,  uint32_t GPIO_Pin, uint32_t GPIO_Conf) ;
 
 #define MyGPIO_Read(GPIO, GPIO_Pin) (GPIO->IDR >> GPIO_Pin) & 1
