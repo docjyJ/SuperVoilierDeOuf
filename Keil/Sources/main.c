@@ -8,19 +8,18 @@ int angle;
 
 int main() {
 	
-	MyGPIO_Init ( GPIOA,  8, In_Floating);
-	MyGPIO_Init ( GPIOA,  9, In_Floating);
+	MyGPIO_Init ( GPIOA,  6, In_Floating);
+	MyGPIO_Init ( GPIOA,  7, In_Floating);
 	MyGPIO_Init ( GPIOB,  1, In_Floating);
-	MyGPIO_Init ( GPIOA,  12, In_Floating);
 
 	Config_Girouette();
-
+	while(!get_start());
 	
-	Init_PWM_Voilier(TIM3);
+	Init_PWM_Voilier();
 	
 	while(1){
 		angle = getAngle();
-		Change_PWM_Cycle(TIM3,angle_PWM(angle));
+		Change_PWM_Cycle(angle_PWM(angle));
 		
 	}
 }

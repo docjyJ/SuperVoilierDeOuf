@@ -1,15 +1,15 @@
 #ifndef VOILES_H
 #define VOILES_H
 #include "stm32f10x.h"
+#define TIM_VOILES TIM4
+void Init_PWM_Voilier(void);
 
-void Init_PWM_Voilier(TIM_TypeDef * TIM);
-
-void Change_PWM_Cycle(TIM_TypeDef * TIM, int Cycle);
+void Change_PWM_Cycle(int Cycle);
 #define MAX_ANGLE_VOILES 100
 #define MIN_ANGLE_VOILES 50
 
-void Lacher_Voiles(TIM_TypeDef * TIM);
-void Serrer_Voiles(TIM_TypeDef * TIM);
+void Lacher_Voiles(void);
+void Serrer_Voiles(void);
 
 int convert_360_to_180(int angle);
 

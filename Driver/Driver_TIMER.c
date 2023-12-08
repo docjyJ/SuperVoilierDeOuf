@@ -1,6 +1,6 @@
 #include "stm32f10x.h"
 #include "Driver_TIMER.h"
-
+#include "Driver_GPIO.h"
 
 
 
@@ -41,6 +41,14 @@ void TIM4_IRQHandler(){
 	(*TIM4_IT_fun)();
 }
 
+void (*Girouette_Ptr) (void);
+void EXTI1_IRQHandler(void) {
+	
+	// Remise à zéro du flag 
+	EXTI->PR |= 0x1 <<1;
+	(*Girouette_Ptr)();
+
+}
 
 
 void MyTimer_ActiveIT(TIM_TypeDef * TIM , uint32_t  priority, void (*IT_fun) (void)){
@@ -109,9 +117,9 @@ void MyTimer_Incremental(TIM_TypeDef * TIM){
 }
 
 // Configuration TIMER Codeur
-void MyTimer_Incremental_Config(TIM_TypeDef * TIM){
+void MyTimer_Incremental_Config(TIM_TypeDef * TIM,void (*IT_function) (void)){
 
-	MyTimer_Incremental(TIM);
+	MyTimer_Incremental(TIM3);
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI1_PB;
 	//Configuration Interruption EXTI PB1
@@ -127,5 +135,6 @@ void MyTimer_Incremental_Config(TIM_TypeDef * TIM){
 	
 	// Priorité Interruption EXTI
 	NVIC->IP[7]=4;
+	Girouette_Ptr = IT_function;
 
 }
