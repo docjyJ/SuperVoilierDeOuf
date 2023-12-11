@@ -411,7 +411,7 @@
             <File>
               <FileName>Lib_Com_Periph_2022.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
+              <FilePath>..\Driver\Sources\Lib_Com_Periph_2022.lib</FilePath>
             </File>
             <File>
               <FileName>Driver_USART.c</FileName>
@@ -434,14 +434,14 @@
               <FilePath>..\Services\Sources\Gestion_ds1307_RTC.c</FilePath>
             </File>
             <File>
-              <FileName>Gestion_telecommande.c</FileName>
+              <FileName>Gestion_Telecommande.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Services\Sources\Gestion_telecommande.c</FilePath>
+              <FilePath>..\Services\Sources\Gestion_Telecommande.c</FilePath>
             </File>
             <File>
-              <FileName>GestionBat.c</FileName>
+              <FileName>Gestion_Batterie.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Services\Sources\GestionBat.c</FilePath>
+              <FilePath>..\Services\Sources\Gestion_Batterie.c</FilePath>
             </File>
             <File>
               <FileName>Gestion_Girouette.c</FileName>
@@ -868,7 +868,7 @@
             <File>
               <FileName>Lib_Com_Periph_2022.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
+              <FilePath>..\Driver\Sources\Lib_Com_Periph_2022.lib</FilePath>
             </File>
             <File>
               <FileName>Driver_USART.c</FileName>
@@ -891,14 +891,14 @@
               <FilePath>..\Services\Sources\Gestion_ds1307_RTC.c</FilePath>
             </File>
             <File>
-              <FileName>Gestion_telecommande.c</FileName>
+              <FileName>Gestion_Telecommande.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Services\Sources\Gestion_telecommande.c</FilePath>
+              <FilePath>..\Services\Sources\Gestion_Telecommande.c</FilePath>
             </File>
             <File>
-              <FileName>GestionBat.c</FileName>
+              <FileName>Gestion_Batterie.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Services\Sources\GestionBat.c</FilePath>
+              <FilePath>..\Services\Sources\Gestion_Batterie.c</FilePath>
             </File>
             <File>
               <FileName>Gestion_Girouette.c</FileName>

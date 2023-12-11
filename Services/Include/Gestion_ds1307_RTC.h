@@ -3,19 +3,17 @@
 
 #include "stm32f10x.h"
 
-typedef struct
-	{
-		char secondes;  
-		char minutes;  
-		char heures;  
-		char jours;  
-	}MyDs1307_time;
+typedef struct {
+    uint8_t secondes;
+    uint8_t minutes;
+    uint8_t heures;
+    uint8_t jours;
+} MyDs1307_time;
 
+void MyDs1307_Init(void);
 
-void MyDs1307_Init(I2C_TypeDef * I2C);
+void MyDs1307_ResetTime(MyDs1307_time *time);
 
-void MyDs1307_ResetTime(I2C_TypeDef * I2C, MyDs1307_time * time);
-	
-MyDs1307_time MyDs1307_GetTime(I2C_TypeDef * I2C);
+MyDs1307_time MyDs1307_GetTime(void);
 
 #endif

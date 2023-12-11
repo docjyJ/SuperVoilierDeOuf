@@ -528,8 +528,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Services\Sources\Gestion_telecommande.c</PathWithFileName>
-      <FilenameWithoutPath>Gestion_telecommande.c</FilenameWithoutPath>
+      <PathWithFileName>..\Services\Sources\Gestion_Telecommande.c</PathWithFileName>
+      <FilenameWithoutPath>Gestion_Telecommande.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -540,8 +540,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Services\Sources\GestionBat.c</PathWithFileName>
-      <FilenameWithoutPath>GestionBat.c</FilenameWithoutPath>
+      <PathWithFileName>..\Services\Sources\Gestion_Batterie.c</PathWithFileName>
+      <FilenameWithoutPath>Gestion_Batterie.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

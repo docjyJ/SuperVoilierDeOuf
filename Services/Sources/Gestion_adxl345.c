@@ -2,56 +2,43 @@
 #include "Gestion_adxl345.h"
 #include "MySPI.h"
 #include "stdlib.h"
+#include "Pin.h"
 
-void Myadxl345_Init(SPI_TypeDef * SPI) {
-	
-	MySPI_Init(SPI);
-	
-	//POWER_CTL
-	MySPI_Clear_NSS();
-	MySPI_Send(0x2D);
-	MySPI_Send(0x08);	
-	MySPI_Set_NSS();
-	
-	//BW_RATE
-	MySPI_Clear_NSS();
-	MySPI_Send(0x2C);
-	MySPI_Send(0x09);
-	MySPI_Set_NSS();
+void MyAdxl345_Init() {
+    MySPI_Init(ADXL345_SPI);
 
-	//DATA_FORMAT
-	MySPI_Clear_NSS();
-	MySPI_Send(0x31);
-	MySPI_Send(0x0B);
-	MySPI_Set_NSS();
+    //POWER_CTL
+    MySPI_Clear_NSS();
+    MySPI_Send(0x2D);
+    MySPI_Send(0x08);
+    MySPI_Set_NSS();
 
+    //BW_RATE
+    MySPI_Clear_NSS();
+    MySPI_Send(0x2C);
+    MySPI_Send(0x09);
+    MySPI_Set_NSS();
+
+    //DATA_FORMAT
+    MySPI_Clear_NSS();
+    MySPI_Send(0x31);
+    MySPI_Send(0x0B);
+    MySPI_Set_NSS();
 }
 
-int Myadxl345_CheckAccelero (void){
-	
-	short int X;
-	short int Y;
-	short int Z;
-	
-	MySPI_Clear_NSS();
-	MySPI_Send(0xF2);
+uint8_t MyAdxl345_CheckAccelerometer() {
+    MySPI_Clear_NSS();
 
-	X = MySPI_Read();
-	X = X + (MySPI_Read()<<8);
-	
-	Y = MySPI_Read();
-	Y = Y + (MySPI_Read()<<8);
+    MySPI_Send(0xF2);
 
-	Z = MySPI_Read();
-	Z = Z	+ (MySPI_Read()<<8);
-	
-	MySPI_Set_NSS();
+    //X
+    MySPI_Read();
+    MySPI_Read();
+    int16_t Y = MySPI_Read() + (MySPI_Read() << 8);
+    int16_t Z = MySPI_Read() + (MySPI_Read() << 8);
 
-	if (abs(Y) >=Z){
+    MySPI_Set_NSS();
 
-		return 1;
-	}else {
-		return 0;
-	}
+    return abs(Y) >= Z;
 }
 

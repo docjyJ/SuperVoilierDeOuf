@@ -3,9 +3,8 @@
 
 #include "stm32f10x.h"
 
+void MyAdxl345_Init(void);
 
-void Myadxl345_Init(SPI_TypeDef * SPI);
-
-int Myadxl345_CheckAccelero (void);
+uint8_t MyAdxl345_CheckAccelerometer(void);
 
 #endif
