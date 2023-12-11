@@ -414,19 +414,36 @@
               <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
             </File>
             <File>
-              <FileName>Driver_adxl345.c</FileName>
+              <FileName>Driver_USART.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_ds1307_RTC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_USART.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
+          <Files>
+            <File>
+              <FileName>Gestion_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gestion_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_ds1307_RTC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gestion_telecommande.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_telecommande.c</FilePath>
+            </File>
+            <File>
+              <FileName>GestionBat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\GestionBat.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
@@ -769,7 +786,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Driver\Include</IncludePath>
+              <IncludePath>..\Driver\Include;..\Services\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -844,19 +861,36 @@
               <FilePath>..\Driver\Source\Lib_Com_Periph_2022.lib</FilePath>
             </File>
             <File>
-              <FileName>Driver_adxl345.c</FileName>
+              <FileName>Driver_USART.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\Source\Driver_adxl345.c</FilePath>
-            </File>
-            <File>
-              <FileName>Driver_ds1307_RTC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Driver\Source\Driver_ds1307_RTC.c</FilePath>
+              <FilePath>..\Driver\Source\Driver_USART.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
+          <Files>
+            <File>
+              <FileName>Gestion_adxl345.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_adxl345.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gestion_ds1307_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_ds1307_RTC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gestion_telecommande.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\Gestion_telecommande.c</FilePath>
+            </File>
+            <File>
+              <FileName>GestionBat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\Sources\GestionBat.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
