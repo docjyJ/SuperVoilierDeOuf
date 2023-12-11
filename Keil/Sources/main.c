@@ -7,25 +7,42 @@
 #include "Gestion_ds1307_RTC.h"
 #include "Gestion_telecommande.h"
 #include "GestionBat.h"
+#include "Gestion_Girouette.h"
+#include "Gestion_Voiles.h"
 
+#include "Pin.h"
+
+int angle;
+uint32_t battery;
 
 int main() {
-
-  uint32_t battery_min = 12;
+  uint32_t battery_min = 10*1000;
+	bool low_bat_sent = false;
 
 	
 	MyGestion_Tel_Init();
+	MyGestion_Tel_Send("Initialisation...");
+
 	MyBatConfigPin();
-	
-	// PIN A V2RIFIER
-	
-	Myadxl345_Init(SPI2);
-	// Myds1307_init() I2C1
-	
-	
+	Myadxl345_Init(USED_SPI);
+	MyConfig_Girouette();
+	while(!MyGet_start());
+
+	MyInit_PWM_Voilier();
+  MyGestion_Tel_Send("Initialisation complète");
+
 	while(1){
-		if (MyBatGetVoltage() < battery_min){
+		battery = MyBatGetVoltage();
+		if (battery < battery_min && !low_bat_sent){
+			low_bat_sent = true;
 			MyGestion_Tel_Send("Plus de batterie, rentrer l'appareil");
+		}
+		
+		if(Myadxl345_CheckAccelero()){
+			MyLacher_Voiles();
+		}else{
+			angle = MyGetAngle();
+			MyChange_PWM_Cycle(MyAngle_PWM(angle));
 		}
 	}
 }

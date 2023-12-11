@@ -1,0 +1,34 @@
+#ifndef PIN_H
+#define PIN_H
+
+
+#define USED_TIM_TEL TIM2
+#define USED_USART_TEL USART3
+#define GPIO_RX_TEL GPIOB, 11
+#define GPIO_TX_TEL GPIOB, 10
+#define GPIO_SENS_TEL GPIOA
+#define PIN_SENS_TEL 10
+#define GPIO_PWM_TEL GPIOA
+#define PIN_PWM_TEL 1
+#define USED_I2C I2C1
+
+#define USED_SPI SPI2
+
+#define GPIO_PWM_VOILE GPIOB
+#define PIN_PWM_VOILE 8
+#define USED_TIM_VOILES TIM4
+
+#define USED_TIM_GIR TIM3
+#define GPIO_PHA_GIR GPIOA
+#define PIN_PHA_GIR 6
+#define GPIO_PHB_GIR GPIOA
+#define PIN_PHB_GIR 7
+#define GPIO_IDX_GIR GPIOB
+#define PIN_IDX_GIR 1
+
+#define GPIO_TEN_BAT GPIOA
+#define PIN_TEN_BAT 4
+#define USED_ADC_BAT ADC1
+#define ADC_CHANNEL_BAT 4
+
+#endif
