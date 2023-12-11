@@ -2,17 +2,14 @@
 #include "Driver_GPIO.h"
 #include "Driver_ADC.h"
 
-#define TensionBatPort GPIOA
-#define TensionBatPin 4
-#define USED_ADC ADC1
-#define ADC_CHANNEL 0
+#include "Pin.h"
 
 void MyBatConfigPin (){
-	MyGPIO_Init(TensionBatPort, TensionBatPin, In_Analog);
-	MyADC_Init(USED_ADC, ADC_CHANNEL);
-	MyADC_On(USED_ADC);
+	MyGPIO_Init(GPIO_TEN_BAT, PIN_TEN_BAT, In_Analog);
+	MyADC_Init(USED_ADC_BAT, ADC_CHANNEL_BAT);
+	MyADC_On(USED_ADC_BAT);
 }
 
 uint32_t MyBatGetVoltage () {
-	return MyADC_Read(USED_ADC);
+	return (MyADC_Read(USED_ADC_BAT)*1000)/85;
 }

@@ -6,38 +6,26 @@
 #include "Gestion_ds1307_RTC.h"
 
 #include <stdio.h>
+#include "Pin.h"
 
-
-#define USED_TIM TIM2
-#define TIM_FREQ 72
-#define REZ_PWM 110
-#define USED_USART USART3
-#define GPIO_RX GPIOB, 11
-#define GPIO_TX GPIOB, 10
-#define BAUDRATE 9600
-#define GPIO_PWM
-#define GPIO_SENS_PORT GPIOA
-#define GPIO_SENS_PIN 10
-#define GPIO_PWM_PORT GPIOA
-#define GPIO_PWM_PIN 1
-#define USED_I2C I2C1
-
-
+#define BAUDRATE_USART 9600
+#define TIM_FREQ_TEL 72
+#define REZ_PWM_TEL 110
 
 void MyGestion_Tel_Init() {
-	MyGPIO_Init(GPIO_PWM_PORT, GPIO_PWM_PIN, AltOut_Ppull);
-	MyGPIO_Init(GPIO_SENS_PORT, GPIO_SENS_PIN, Out_Ppull);
+	MyGPIO_Init(GPIO_PWM_TEL, PIN_PWM_TEL, AltOut_Ppull);
+	MyGPIO_Init(GPIO_SENS_TEL, PIN_SENS_TEL, Out_Ppull);
 	
-	MyTimer_Base_Init(USED_TIM, REZ_PWM-1, TIM_FREQ/2-1);
-	MyTimer_PWM(USED_TIM, 2);
-	MyTimer_PWM_Cycle(USED_TIM, 2, 0);
-	MyTimer_Base_Start(USED_TIM);
+	MyTimer_Base_Init(USED_TIM_TEL, REZ_PWM_TEL-1, TIM_FREQ_TEL/2-1);
+	MyTimer_PWM(USED_TIM_TEL, 2);
+	MyTimer_PWM_Cycle(USED_TIM_TEL, 2, 0);
+	MyTimer_Base_Start(USED_TIM_TEL);
 	
-	MyGPIO_Init (GPIO_TX, AltOut_Ppull_10);
-	MyGPIO_Init (GPIO_RX, In_PullUp);
+	MyGPIO_Init (GPIO_TX_TEL, AltOut_Ppull_10);
+	MyGPIO_Init (GPIO_RX_TEL, In_PullUp);
 	
-	MyUsart_Base_Init (USED_USART, BAUDRATE);
-	MyUsart_ActiveIT (USED_USART, 2, MyGestion_Tel_Command);
+	MyUsart_Base_Init (USED_USART_TEL, BAUDRATE_USART);
+	MyUsart_ActiveIT (USED_USART_TEL, 2, MyGestion_Tel_Command);
 	
 	MyDs1307_Init(USED_I2C);
 
@@ -46,13 +34,13 @@ void MyGestion_Tel_Init() {
 void MyGestion_Tel_Command(char cmd) {
 	int8_t leNew = (int8_t) cmd;
 	if (leNew < 0) {		
-		MyGPIO_Set(GPIO_SENS_PORT, GPIO_SENS_PIN);
+		MyGPIO_Set(GPIO_SENS_TEL, PIN_SENS_TEL);
 		leNew = -leNew;
 	}
 	else {
-		MyGPIO_Reset(GPIO_SENS_PORT, GPIO_SENS_PIN);
+		MyGPIO_Reset(GPIO_SENS_TEL, PIN_SENS_TEL);
 	}
-	MyTimer_PWM_Cycle(USED_TIM, 2, leNew);
+	MyTimer_PWM_Cycle(USED_TIM_TEL, 2, leNew);
 }
 
 void MyGestion_Tel_Send(char* sms) {
@@ -64,10 +52,10 @@ void MyGestion_Tel_Send(char* sms) {
 	sprintf(head, "[%02d:%02d:%02d] ", time.heures, time.minutes, time.secondes);
 	
 	
-	for (i = 0; i < 11; i++) MyUsart_Send(USED_USART, head[i]);
+	for (i = 0; i < 11; i++) MyUsart_Send(USED_USART_TEL, head[i]);
 	
-  for (i = 0; sms[i]; i++) MyUsart_Send(USED_USART, sms[i]);
+  for (i = 0; sms[i]; i++) MyUsart_Send(USED_USART_TEL, sms[i]);
 
 	
-	MyUsart_Send(USED_USART, '\n');
+	MyUsart_Send(USED_USART_TEL, '\n');
 }
