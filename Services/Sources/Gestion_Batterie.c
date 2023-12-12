@@ -1,4 +1,5 @@
 #include "stm32f10x.h"
+#include "Gestion_Batterie.h"
 #include "Driver_GPIO.h"
 #include "Driver_ADC.h"
 
@@ -11,5 +12,5 @@ void MyBat_Init() {
 }
 
 uint32_t MyBat_GetVoltage() {
-    return MyADC_Read(BAT_ADC) * 200 / 17;
+    return (MyADC_Read(BAT_ADC) * 1000) / 85;
 }

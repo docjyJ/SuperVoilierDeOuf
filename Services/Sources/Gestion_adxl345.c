@@ -27,6 +27,8 @@ void MyAdxl345_Init() {
 }
 
 uint8_t MyAdxl345_CheckAccelerometer() {
+		int16_t Y, Z;
+	
     MySPI_Clear_NSS();
 
     MySPI_Send(0xF2);
@@ -34,8 +36,8 @@ uint8_t MyAdxl345_CheckAccelerometer() {
     //X
     MySPI_Read();
     MySPI_Read();
-    int16_t Y = MySPI_Read() + (MySPI_Read() << 8);
-    int16_t Z = MySPI_Read() + (MySPI_Read() << 8);
+    Y = MySPI_Read() + (MySPI_Read() << 8);
+    Z = MySPI_Read() + (MySPI_Read() << 8);
 
     MySPI_Set_NSS();
 

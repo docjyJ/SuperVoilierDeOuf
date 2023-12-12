@@ -350,6 +350,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>battery,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>battery_min,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>i</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -436,8 +446,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Driver\Source\Driver_ADC.c</PathWithFileName>
-      <FilenameWithoutPath>Driver_ADC.c</FilenameWithoutPath>
+      <PathWithFileName>..\Driver\Sources\Driver_USART.c</PathWithFileName>
+      <FilenameWithoutPath>Driver_USART.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -448,8 +458,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Driver\Source\Driver_GPIO.c</PathWithFileName>
-      <FilenameWithoutPath>Driver_GPIO.c</FilenameWithoutPath>
+      <PathWithFileName>..\Driver\Sources\Driver_ADC.c</PathWithFileName>
+      <FilenameWithoutPath>Driver_ADC.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -457,35 +467,35 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Driver\Source\Driver_TIMER.c</PathWithFileName>
-      <FilenameWithoutPath>Driver_TIMER.c</FilenameWithoutPath>
+      <PathWithFileName>..\Driver\Sources\Driver_GPIO.c</PathWithFileName>
+      <FilenameWithoutPath>Driver_GPIO.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
       <FileNumber>5</FileNumber>
-      <FileType>4</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Driver\Source\Lib_Com_Periph_2022.lib</PathWithFileName>
-      <FilenameWithoutPath>Lib_Com_Periph_2022.lib</FilenameWithoutPath>
+      <PathWithFileName>..\Driver\Sources\Driver_TIMER.c</PathWithFileName>
+      <FilenameWithoutPath>Driver_TIMER.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
       <FileNumber>6</FileNumber>
-      <FileType>1</FileType>
+      <FileType>4</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Driver\Source\Driver_USART.c</PathWithFileName>
-      <FilenameWithoutPath>Driver_USART.c</FilenameWithoutPath>
+      <PathWithFileName>..\Driver\Sources\Lib_Com_Periph_2022.lib</PathWithFileName>
+      <FilenameWithoutPath>Lib_Com_Periph_2022.lib</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -540,8 +550,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Services\Sources\Gestion_Batterie.c</PathWithFileName>
-      <FilenameWithoutPath>Gestion_Batterie.c</FilenameWithoutPath>
+      <PathWithFileName>..\Services\Sources\Gestion_Girouette.c</PathWithFileName>
+      <FilenameWithoutPath>Gestion_Girouette.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -552,8 +562,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Services\Sources\Gestion_Girouette.c</PathWithFileName>
-      <FilenameWithoutPath>Gestion_Girouette.c</FilenameWithoutPath>
+      <PathWithFileName>..\Services\Sources\Gestion_Voiles.c</PathWithFileName>
+      <FilenameWithoutPath>Gestion_Voiles.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -561,11 +571,11 @@
       <GroupNumber>3</GroupNumber>
       <FileNumber>12</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Services\Sources\Gestion_Voiles.c</PathWithFileName>
-      <FilenameWithoutPath>Gestion_Voiles.c</FilenameWithoutPath>
+      <PathWithFileName>..\Services\Sources\Gestion_Batterie.c</PathWithFileName>
+      <FilenameWithoutPath>Gestion_Batterie.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

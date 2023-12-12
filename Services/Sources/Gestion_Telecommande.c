@@ -9,7 +9,7 @@
 
 
 void MyTel_Command(uint16_t cmd) {
-    int16_t leNew = (int16_t) cmd;
+    int8_t leNew = (int8_t) cmd;
     if (leNew < 0) {
         MyGPIO_Set(TEL_DIR_PORT, TEL_DIR_PIN);
         leNew = -leNew;

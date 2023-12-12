@@ -2,10 +2,10 @@
 #include "Gestion_Batterie.h"
 #include "Gestion_Voiles.h"
 
-
 int main() {
     uint32_t battery_min = 10 * 1000;
-    uint8_t low_bat_sent = 0x01;
+	  uint32_t battery;
+    uint32_t i;
 
     MyTel_Init();
     MyTel_Send("Initialisation...");
@@ -14,12 +14,13 @@ int main() {
     MyTel_Send("Initialisation complete");
 
     while (1) {
-        if (MyBat_GetVoltage() < battery_min && low_bat_sent) {
-            low_bat_sent = 0x00;
+				battery = MyBat_GetVoltage();
+        if (battery < battery_min) {
             MyTel_Send("Plus de batterie, rentrer l'appareil");
         }
 
         MyVoile_UpdateVoile();
+				for(i=420;i;i--);
     }
 }
 
