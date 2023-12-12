@@ -11,11 +11,11 @@ void MyGPIO_Init(GPIO_TypeDef *GPIO, uint16_t GPIO_Pin, uint16_t GPIO_Conf) {
     else return;
 
     if (GPIO_Pin < 8) {
-			  uint8_t dec = (GPIO_Pin & 0x7) << 2;
+        uint8_t dec = (GPIO_Pin & 0x7) << 2;
         GPIO->CRL &= ~(0xF << dec);
         GPIO->CRL |= (GPIO_Conf & 0xF) << dec;
     } else if (GPIO_Pin < 16) {
-			  uint8_t dec = (GPIO_Pin & 0x7) << 2;
+        uint8_t dec = (GPIO_Pin & 0x7) << 2;
         GPIO->CRH &= ~(0xF << dec);
         GPIO->CRH |= (GPIO_Conf & 0xF) << dec;
     } else return;

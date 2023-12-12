@@ -3,9 +3,7 @@
 #include "Gestion_Voiles.h"
 
 int main() {
-    uint32_t battery_min = 10 * 1000;
-	  uint32_t battery;
-    uint32_t i;
+    uint32_t battery_min = 10 * 1000, battery, i;
 
     MyTel_Init();
     MyTel_Send("Initialisation...");
@@ -14,13 +12,13 @@ int main() {
     MyTel_Send("Initialisation complete");
 
     while (1) {
-				battery = MyBat_GetVoltage();
+        battery = MyBat_GetVoltage();
         if (battery < battery_min) {
-            MyTel_Send("Plus de batterie, rentrer l'appareil");
+            MyTel_Send("Plus de batterie !");
         }
 
         MyVoile_UpdateVoile();
-				for(i=420;i;i--);
+        for (i = 420; i; i--);
     }
 }
 
