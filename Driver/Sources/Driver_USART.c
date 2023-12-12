@@ -19,13 +19,13 @@ void USART3_IRQHandler() {
     USART3_IT_fun(USART3->DR);
 }
 
-void MyUsart_Send(USART_TypeDef *USART, char data) {
+void MyUSART_Send(USART_TypeDef *USART, char data) {
     while (!(USART->SR & USART_SR_TC));
     USART->DR |= data;
 }
 
 
-void MyUsart_Base_Init(USART_TypeDef *USART, uint16_t BaudRate) {
+void MyUSART_Init(USART_TypeDef *USART, uint16_t baudRate) {
     int Fpclk = 36000000;
 
     if (USART == USART1) {
@@ -38,12 +38,12 @@ void MyUsart_Base_Init(USART_TypeDef *USART, uint16_t BaudRate) {
     USART->CR1 &= ~USART_CR1_M;        //word length
     USART->CR1 |= USART_CR1_UE;    //enable
     USART->CR2 &= ~USART_CR2_STOP; //stop bit
-    USART->BRR |= Fpclk / BaudRate;  //baud rate here fpclk/(baudrate)
+    USART->BRR |= Fpclk / baudRate;  //baud rate here fpclk/(baudrate)
     USART->CR1 |= USART_CR1_TE;
     USART->SR |= USART_SR_TC;
 }
 
-void MyUsart_ActiveIT(USART_TypeDef *USART, uint32_t priority, void (*IT_fun)(uint16_t)) {
+void MyUSART_ActiveIT(USART_TypeDef *USART, uint8_t priority, void (*IT_fun)(uint16_t)) {
     IRQn_Type USART_IRQn;
     if (USART == USART1) {
         USART_IRQn = USART1_IRQn;

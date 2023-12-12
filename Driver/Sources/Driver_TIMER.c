@@ -2,7 +2,7 @@
 #include "Driver_TIMER.h"
 
 
-void MyTimer_BaseInit(TIM_TypeDef *TIM, uint16_t ARR, uint16_t PSC) {
+void MyTIM_BaseInit(TIM_TypeDef *TIM, uint16_t ARR, uint16_t PSC) {
     if (TIM == TIM1) RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
     else if (TIM == TIM2) RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
     else if (TIM == TIM3) RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
@@ -43,17 +43,15 @@ void TIM4_IRQHandler() {
     (*TIM4_IT_fun)();
 }
 
-void (*Girouette_Ptr)(void);
+void (*EXTI1_IT_fun)(void);
 
 void EXTI1_IRQHandler(void) {
-
-    // Remise à zéro du flag
-    EXTI->PR |= 0x1 << 1;
-    (*Girouette_Ptr)();
+    EXTI->PR |= EXTI_PR_PR1;
+    (*EXTI1_IT_fun)();
 
 }
 
-void MyTimer_ActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_fun)(void)) {
+void MyTIM_ActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_fun)(void)) {
     IRQn_Type TIM_IRQn;
     if (TIM == TIM1) {
         TIM_IRQn = TIM1_UP_IRQn;
@@ -75,7 +73,7 @@ void MyTimer_ActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_fun)(void)) 
 }
 
 
-void MyTimer_PWM(TIM_TypeDef *TIM, uint8_t TIM_Channel) {
+void MyTimer_PWMInit(TIM_TypeDef *TIM, uint8_t TIM_Channel) {
     switch (TIM_Channel) {
         case 1:
             TIM->CCER |= TIM_CCER_CC1E;
@@ -113,7 +111,7 @@ void MyTimer_PWMCycle(TIM_TypeDef *TIM, uint8_t TIM_Channel, uint16_t CCR) {
     else if (TIM_Channel == 4) TIM->CCR4 = CCR;
 }
 
-void MyTimer_Incremental(TIM_TypeDef *TIM) {
+void MyTimer_IncrementalInit(TIM_TypeDef *TIM) {
     TIM->CCMR1 &= ~(TIM_CCMR1_CC1S) & ~(TIM_CCMR1_CC2S);
     TIM->CCMR1 |= TIM_CCMR1_CC1S | TIM_CCMR1_CC2S;
     TIM->CCMR1 |= TIM_CCMR1_OC1M_0 | TIM_CCMR1_OC2M_0;
@@ -127,7 +125,7 @@ void MyTimer_Incremental(TIM_TypeDef *TIM) {
     TIM->CR1 |= TIM_CR1_CEN;
 }
 
-void MyTimer_IncrementalConfig(TIM_TypeDef *TIM, uint8_t priority, void (*IT_function)(void)) {
+void MyTimer_IncrementalActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_function)(void)) {
     RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
     AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI1_PB;
@@ -135,7 +133,7 @@ void MyTimer_IncrementalConfig(TIM_TypeDef *TIM, uint8_t priority, void (*IT_fun
     EXTI->RTSR |= EXTI_RTSR_TR1;
     EXTI->FTSR &= ~EXTI_FTSR_TR1;
 
-    Girouette_Ptr = IT_function;
+    EXTI1_IT_fun = IT_function;
 
     TIM->DIER |= TIM_DIER_UIE;
     NVIC_EnableIRQ(EXTI1_IRQn);

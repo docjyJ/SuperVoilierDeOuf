@@ -17,9 +17,9 @@ void MyGir_Init() {
     MyGPIO_Init(GIR_PHB_PORT, GIR_PHB_PIN, In_Floating);
     MyGPIO_Init(GIR_IDX_PORT, GIR_IDX_PIN, In_Floating);
 
-    MyTimer_BaseInit(GIR_TIM, 1439, 0);
-    MyTimer_Incremental(GIR_TIM);
-    MyTimer_IncrementalConfig(GIR_TIM, 4, &MyGirouette_RAZ);
+    MyTIM_BaseInit(GIR_TIM, 1439, 0);
+    MyTimer_IncrementalInit(GIR_TIM);
+    MyTimer_IncrementalActiveIT(GIR_TIM, 4, &MyGirouette_RAZ);
 
     while (Gestion_Girouette_Start);
 }

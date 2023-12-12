@@ -23,16 +23,16 @@ void MyTel_Init() {
     MyGPIO_Init(TEL_PWN_PORT, TEL_PWN_PIN, AltOut_Ppull);
     MyGPIO_Init(TEL_DIR_PORT, TEL_DIR_PIN, Out_Ppull);
 
-    MyTimer_BaseInit(TEL_PWN_TIM, 109, 35);
-    MyTimer_PWM(TEL_PWN_TIM, TEL_PWN_CHANNEL);
+    MyTIM_BaseInit(TEL_PWN_TIM, 109, 35);
+    MyTimer_PWMInit(TEL_PWN_TIM, TEL_PWN_CHANNEL);
     MyTimer_PWMCycle(TEL_PWN_TIM, TEL_PWN_CHANNEL, 0);
-    MyTimer_BaseStart(TEL_PWN_TIM);
+    MyTimer_Start(TEL_PWN_TIM);
 
     MyGPIO_Init(TEL_TX_PORT, TEL_TX_PIN, AltOut_Ppull_10);
     MyGPIO_Init(TEL_RX_PORT, TEL_RX_PIN, In_PullUp);
 
-    MyUsart_Base_Init(TEL_USART, 9600);
-    MyUsart_ActiveIT(TEL_USART, 2, MyTel_Command);
+    MyUSART_Init(TEL_USART, 9600);
+    MyUSART_ActiveIT(TEL_USART, 2, MyTel_Command);
 
     MyDs1307_Init();
 }
@@ -45,9 +45,9 @@ void MyTel_Send(char *sms) {
 
     sprintf(head, "[%02u:%02u:%02u] ", time.heures, time.minutes, time.secondes);
 
-    for (i = 0; i < 11; i++) MyUsart_Send(TEL_USART, head[i]);
+    for (i = 0; i < 11; i++) MyUSART_Send(TEL_USART, head[i]);
 
-    for (i = 0; sms[i]; i++) MyUsart_Send(TEL_USART, sms[i]);
+    for (i = 0; sms[i]; i++) MyUSART_Send(TEL_USART, sms[i]);
 
-    MyUsart_Send(TEL_USART, '\n');
+    MyUSART_Send(TEL_USART, '\n');
 }

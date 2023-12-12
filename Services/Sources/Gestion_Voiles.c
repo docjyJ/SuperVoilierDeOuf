@@ -11,9 +11,9 @@ void MyVoile_Init() {
     MyGir_Init();
 
     MyGPIO_Init(VOILE_PORT, VOILE_PIN, AltOut_Ppull);
-    MyTimer_BaseInit(VOILE_TIM, 1599, 899);
-    MyTimer_BaseStart(VOILE_TIM);
-    MyTimer_PWM(VOILE_TIM, VOILE_CHANNEL);
+    MyTIM_BaseInit(VOILE_TIM, 1599, 899);
+    MyTimer_Start(VOILE_TIM);
+    MyTimer_PWMInit(VOILE_TIM, VOILE_CHANNEL);
 }
 
 void MyVoile_UpdateVoile(){
