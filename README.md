@@ -6,7 +6,7 @@ Veuillez donc, trouvez ci-joint la façon dont vous pouvez utiliser notre code.
 
 ## Utilisation
 
-Ce code à été écris pour le STM32F103RB. Le projet Keil déjà configuré et pret à l'emplois est livré (sauf si il fait des sienne).
+Ce code à été écrit pour le STM32F103RB. Le projet Keil déjà configuré et prêt à l'emplois et livré (sauf si il fait des siennes).
 
 ## Merci
 
