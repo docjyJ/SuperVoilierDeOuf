@@ -1,17 +1,23 @@
-#ifndef MYTIMER_H
-#define MYTIMER_H
+#ifndef Driver_TIMER_h_
+#define Driver_TIMER_h_
+
 #include "stm32f10x.h"
 
-void MyTimer_Base_Init (TIM_TypeDef * TIM, uint16_t ARR, uint16_t PSC);
-void MyTimer_ActiveIT(TIM_TypeDef * TIM , uint32_t priority, void (*IT_fun) (void));
+#define MyTimer_Start(TIM) TIM->CR1 |= TIM_CR1_CEN
+#define MyTimer_Stop(TIM) TIM->CR1 &= ~TIM_CR1_CEN
+#define MyTimer_ResetCount(TIM) TIM->CNT = 0
+#define MyTimer_GetCount(TIM) TIM->CNT
 
-#define MyTimer_Base_Start(TIM) TIM->CR1 |= TIM_CR1_CEN
-#define MyTimer_Base_Stop(TIM) TIM->CR1 &= ~TIM_CR1_CEN
+void MyTIM_BaseInit(TIM_TypeDef *TIM, uint16_t ARR, uint16_t PSC);
 
-void MyTimer_PWM(TIM_TypeDef * TIM , uint32_t TIM_Channel);
-void MyTimer_PWM_Cycle(TIM_TypeDef * TIM , uint32_t TIM_Channel, uint16_t CCR);
+void MyTIM_ActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_fun)(void));
 
-void MyTimer_Incremental(TIM_TypeDef * TIM);
-void MyTimer_Incremental_Config(TIM_TypeDef * TIM,void (*IT_function) (void));
+void MyTimer_PWMInit(TIM_TypeDef *TIM, uint8_t channel);
+
+void MyTimer_PWMCycle(TIM_TypeDef *TIM, uint8_t channel, uint16_t CCR);
+
+void MyTimer_IncrementalInit(TIM_TypeDef *TIM);
+
+void MyTimer_IncrementalActiveIT(TIM_TypeDef *TIM, uint8_t priority, void (*IT_function)(void));
 
 #endif

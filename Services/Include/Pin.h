@@ -1,34 +1,54 @@
 #ifndef PIN_H
 #define PIN_H
 
+// ADXL345
+#define ADXL345_SPI SPI2
+/* SPI2 IO
+ * NSS PB12
+ * SCK PB13
+ * MISO PB14
+ * MOSI PB15
+ */
 
-#define USED_TIM_TEL TIM2
-#define USED_USART_TEL USART3
-#define GPIO_RX_TEL GPIOB, 11
-#define GPIO_TX_TEL GPIOB, 10
-#define GPIO_SENS_TEL GPIOA
-#define PIN_SENS_TEL 10
-#define GPIO_PWM_TEL GPIOA
-#define PIN_PWM_TEL 1
-#define USED_I2C I2C1
+// Bartterie
+#define BAT_PORT GPIOA
+#define BAT_PIN 4
+#define BAT_ADC ADC1
+#define BAT_CHANNEL 4
 
-#define USED_SPI SPI2
+// DS1307
+#define DS1307_I2C I2C1
+/* I2C1 IO
+ * SCL PB6
+ * SDA PB7
+ */
 
-#define GPIO_PWM_VOILE GPIOB
-#define PIN_PWM_VOILE 8
-#define USED_TIM_VOILES TIM4
+// Girouette
+#define GIR_PHA_PORT GPIOA
+#define GIR_PHA_PIN 6
+#define GIR_PHB_PORT GPIOA
+#define GIR_PHB_PIN 7
+#define GIR_IDX_PORT GPIOB
+#define GIR_IDX_PIN 1
+#define GIR_TIM TIM3
 
-#define USED_TIM_GIR TIM3
-#define GPIO_PHA_GIR GPIOA
-#define PIN_PHA_GIR 6
-#define GPIO_PHB_GIR GPIOA
-#define PIN_PHB_GIR 7
-#define GPIO_IDX_GIR GPIOB
-#define PIN_IDX_GIR 1
+// Telecommande
+#define TEL_USART USART3
+#define TEL_RX_PORT GPIOB
+#define TEL_RX_PIN 11
+#define TEL_TX_PORT GPIOB
+#define TEL_TX_PIN 10
+#define TEL_PWN_TIM TIM2
+#define TEL_PWN_CHANNEL 2
+#define TEL_PWN_PORT GPIOA
+#define TEL_PWN_PIN 1
+#define TEL_DIR_PORT GPIOA
+#define TEL_DIR_PIN 10
 
-#define GPIO_TEN_BAT GPIOA
-#define PIN_TEN_BAT 4
-#define USED_ADC_BAT ADC1
-#define ADC_CHANNEL_BAT 4
+//Voiles
+#define VOILE_PORT GPIOB
+#define VOILE_PIN 8
+#define VOILE_TIM TIM4
+#define VOILE_CHANNEL 3
 
 #endif
